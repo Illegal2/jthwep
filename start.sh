@@ -43,7 +43,7 @@ read -p "Enter your selection: " selection
 GITHUB_REPO="https://github.com/Illegal2/jthwep.git"
 
 # Çekilecek dosyaların hedef klasörleri
-FOLDER_GOOGLE="site/1/dosyalar"
+FOLDER_GOOGLE="site/1/index.html"
 FOLDER_GITHUB="site/2/dosyalar"
 FOLDER_PUBG="site/3/dosyalar"
 FOLDER_INSTAGRAM="site/4/dosyalar"
