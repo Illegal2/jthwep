@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTH_HOME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        /* Arka plan video */
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Üst köşedeki butonlar */
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .header button {
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .header .kayit {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+        }
+        .header .giris {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+            color: white;
+        }
+        .header button:hover {
+            transform: scale(1.1);
+            background: black;
+        }
+        /* Butonları içeren bölüm */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 350px;
+        }
+        /* Buton tasarımı */
+        .button-box {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, #333, #555);
+            padding: 8px;
+            border: 2px solid white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin-bottom: 12px;
+            width: 100%;
+            text-align: left;
+        }
+        .button-box:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #666, #999);
+            border-color: yellow;
+        }
+        .button-box img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+        .button-box .text h3 {
+            margin: 0;
+            font-size: 14px;
+            color: yellow;
+        }
+        .button-box .text p {
+            margin: 2px 0 0;
+            font-size: 10px;
+            color: white;
+        }
+        /* Ses butonu */
+        .sound-toggle {
+            position: absolute;
+            top: 2px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: url('imange/ses.png') no-repeat center center / cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 50%; /* Yuvarlak yapmak için */
+        }
+        .sound-toggle.muted {
+            background: url('imange/noses.png') no-repeat center center / cover;
+        }
+        .sound-toggle:hover {
+            transform: scale(1.1);
+        }
+        /* Ses butonunun yuvarlak ikonu */
+        .sound-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid white;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sound-toggle.muted .sound-icon {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Arka plan video -->
+    <video autoplay loop muted id="video-bg">
+        <source src="video/index.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <!-- Ses Aç/Kapat Butonu -->
+    <div class="sound-toggle" id="soundButton">
+        <div class="sound-icon"></div>
+    </div>
+
+    <!-- Ses dosyası -->
+    <audio id="backgroundAudio" loop>
+        <source src="ses/home.mp3" type="audio/mp3">
+        Tarayıcınız ses etiketini desteklemiyor.
+    </audio>
+
+<!-- Üst köşedeki kayıt ve giriş butonları -->
+<div class="header">
+    <button class="kayit" onclick="window.location.href='bakımda.html'">IP
+        SORGU</button>
+    <button class="giris" onclick="window.location.href='bakımda.html'">KIRULUM</button>
+</div>
+
+    <!-- Ana ekran butonları -->
+    <div class="content">
+        <div class="button-box" onclick="window.location.href='https://termux.dev/'">
+            <img src="imange/sosyal.png" alt="Sosyal">
+            <div class="text">
+                <h3>Sosyal Medya Hack</h3>
+                <p>1. Hesap Çalma</p>
+                <p>2. PC gerekmez</p>
+                <p>3. Sadece Termux</p>
+                <p>4.eğitim amaçlı </p>
+            </div>
+        </div>
+        <div class="button-box" onclick="window.location.href='linux.html'">
+            <img src="imange/linux.png" alt="Mobil Linux">
+            <div class="text">
+                <h3>Mobil Linux☠️</h3>
+                <p>1.Son Sürüm</p>
+                <p>2.Termux & F-Droid Gerekli </p>
+                <p>3.15GB Hafıza Gerekli</p>
+            </div>
+        </div>
+        <div class="button-box" onclick="window.location.href='https://wiki.termux.com/wiki/Main_Page'">
+            <img src="imange/wep.png" alt="Wiki">
+            <div class="text">
+                <h3>Wep Site Şablonlar</h3>
+                <p>1.HTML(5) Şablonlar</p>
+                <p>2.100% FREE</p>
+            </div>
+        </div>
+        <div class="button-box" onclick="window.location.href='chat.html'">
+            <img src="imange/vipchat.png" alt="F-Droid">
+            <div class="text">
+                <h3>VİP_CHAT APK</h3>
+                <p>1.GILOBAL CHAT</p>
+                <p>2.%100 FREE</p>
+                <p>3.CEP NO Ve E-POSTA Gerekmez</p>
+            </div>
+        </div>
+        <div class="button-box" onclick="window.location.href='oyun.html'">
+            <img src="imange/oyun.png" alt="Google Play">
+            <div class="text">
+                <h3>OYUN HACK</h3>
+                <p>1.HİLE'lerin %50si bana ayit Değil'</p>
+                <p>2.Tün Hileler Test Edilip Paylaşılacak</p>
+                <p>3.%10 Vıp Pubg Mobil hile Olacak</p>
+                <p>4.ByPass Var</p>
+            </div>
+        </div>
+        <div class="button-box" onclick="window.location.href='gurup.html'">
+            <img src="imange/github.png" alt="YouTube">
+            <div class="text">
+                <h3>GURUPLARIMIZ & GİTHUB</h3>
+                <p>1.TELEGRAM GURUPLARI</p>
+                <p>2.İNSTAGRAM GURUPLARI</p>
+                <p>3.GİTHUB PAYLAŞIM HESABIMIZ</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const soundButton = document.getElementById('soundButton');
+        const audio = document.getElementById('backgroundAudio');
+
+        soundButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                soundButton.classList.remove('muted');
+            } else {
+                audio.pause();
+                soundButton.classList.add('muted');
+            }
+        });
+    </script>
+
+</body>
+</html>
+</html>        
