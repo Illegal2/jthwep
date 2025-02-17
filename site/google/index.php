@@ -65,12 +65,61 @@ while ($client = @stream_socket_accept($server, -1)) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Terminal Bağlantısı</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            .container {
+                width: 100%;
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            h1 {
+                color: #333;
+                font-size: 24px;
+            }
+            input[type="text"] {
+                width: 80%;
+                padding: 10px;
+                font-size: 16px;
+                border: 2px solid #ddd;
+                border-radius: 4px;
+                margin-bottom: 20px;
+                outline: none;
+            }
+            input[type="text"]:focus {
+                border-color: #4CAF50;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                color: white;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
-    <body style="text-align:center; font-family:Arial; margin-top:100px;">
-        <form method="GET">
-            <input type="text" name="msg" placeholder="Mesajınızı yazın" required>
-            <button type="submit">Gönder</button>
-        </form>
+    <body>
+        <div class="container">
+            <h1>Mesajınızı Girin</h1>
+            <form method="GET">
+                <input type="text" name="msg" placeholder="Mesajınızı yazın" required>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
     </body>
     </html>');
 
